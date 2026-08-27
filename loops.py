@@ -43,7 +43,7 @@
 #else:
    # print("break not executed ")
 
-n = int(input("enter number"))
+#n = int(input("enter number"))
 #for i in range(n , 0 , -1 ):
   #  print(i)
 
@@ -67,4 +67,21 @@ n = int(input("enter number"))
 
 # for eg no is 13 
 
+# factors except no itself have sum equal to numb 
+
+# prime no 
+#for i in range(2 , n ):
+  #  if n%i==0:
+     # print("no it is not a prime no ")
+   #   break
+ #else:  # yeh for - else h ab kyu ki indenation for ke saath  h 
+  #      print(" yes no is prime")
+
+a = "INSIYA"
+b =  " ZAIDI "
+c = ""
+for i in range(len(a)-1 , -1 , -1):
+ c+=a[i]
+
+print(c+b) # bhr h for loop ke ... kyu ki yeh c+=a ke saath align ni h 
 
