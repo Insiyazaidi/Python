@@ -1,0 +1,70 @@
+# a = range(1 , 21 , 1)
+#for i in a:
+    #print(i)
+
+#for i in range(1 , 21 , 1):
+    #print(i)
+
+#for i in range(21):  # by default it will start from 0 and step size will be 1 however it is necessary to give ending point 
+   # print(i)
+
+# if we want to reverse 
+
+#for i in range(16 , 0 , -1): # it will print from 16 to 1 
+   # print(i)
+
+#for i in range(-5 , 3 , 1):
+  #  print(i)
+
+#for i in range(5 , 51 , 5):
+  #  print(i)
+ 
+#n = int(input("enter the table"))
+
+#for i in range(n , (n*10)+1 , n):
+   # print(i)
+
+#a = "INSIYAZAIDI hello from my side"
+#for i in range(0 , len(a)  ,1):
+  #  print(a[i])
+
+#for i in a :
+   # print(i)
+
+#for i in range(1 , 21 ,1):
+   # if i==15:
+     #   print("break is executed ")
+     #   break
+
+
+  #  print(i)  # if ke bahar, but for loop ke andar
+  
+
+#else:
+   # print("break not executed ")
+
+n = int(input("enter number"))
+#for i in range(n , 0 , -1 ):
+  #  print(i)
+
+    # sum upto n terms
+#sum=0
+
+#for i in range(1 , n+1 ):
+   # sum+=i
+
+#print(sum)  # agr sum+=i ke saath indent kroge toh yeh within loop consider hoga .. abhi toh bhr h 
+
+
+#for i in range(1 ,11):
+   # print(f"{n} * {i} = {n*i}")
+
+#prod = 1
+#for i in range(n , 1 , -1):
+   # prod *= i
+
+#print(prod)
+
+# for eg no is 13 
+
+
