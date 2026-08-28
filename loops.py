@@ -77,11 +77,28 @@
  #else:  # yeh for - else h ab kyu ki indenation for ke saath  h 
   #      print(" yes no is prime")
 
-a = "INSIYA"
-b =  " ZAIDI "
-c = ""
-for i in range(len(a)-1 , -1 , -1):
- c+=a[i]
+#a = "INSIYA"
+#b =  " ZAIDI "
+#c = ""
+#for i in range(len(a)-1 , -1 , -1):
+ #c+=a[i]
 
-print(c+b) # bhr h for loop ke ... kyu ki yeh c+=a ke saath align ni h 
+#print(c+b) # bhr h for loop ke ... kyu ki yeh c+=a ke saath align ni h 
+
+a= "fsfi788754095-40iue"
+char= 0
+dig=0
+spec=0
+for i in range(0 , len(a) , 1):
+   if a[i].isdigit():
+      dig+=1
+   elif a[i].isalpha():
+      char+=1
+   else:
+      spec+=1
+
+print(f"your digits are {dig} , char are {char} , special char are {spec}")
+
+
+
 
