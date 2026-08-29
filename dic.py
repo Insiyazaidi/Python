@@ -59,8 +59,7 @@
 
 #IMP
 #MERGE TWO DIC 
-#d1={10:100 , 20:200,30:300 , 40:900}
-# d2={40:400 , 5:699, 6:13 }
+
 
 # for i in d2:  # i will point to key in d2 
 #     d1[i] = d2[i]  # this means d1[key] agr exist krti hogi toh uski value d2[key] m jo h vo daal do aur in case vo present ni h key d1 m toh new key 
@@ -75,15 +74,26 @@
 # print(sum)   
 
 # count freq of each element in a list 
-a = [1,1,1,2,3,3,4,4,5,5,6, 7 , 8 , 8 , 5 ]
+# a = [1,1,1,2,3,3,4,4,5,5,6, 7 , 8 , 8 , 5 ]
 
-# dict={1:3 , 2:1 , 3:2 .... } we need to create like this 
+# # dict={1:3 , 2:1 , 3:2 .... } we need to create like this 
 
-d = {}
-for i in a : # traversing over list 
-  if i in d.keys():  #  d.keys() → dictionary ke sirf keys ,,,    if this i exist as key in dic  
-    d[i]+=1  # add +1 to vlue 
-  else:
-    d[i]=1
+# d = {}
+# for i in a : # traversing over list 
+#   if i in d.keys():  #  d.keys() → dictionary ke sirf keys ,,,    if this i exist as key in dic  
+#     d[i]+=1  # add +1 to vlue 
+#   else:
+#     d[i]=1
   
-print(d)
+# print(d)
+
+d1={10:100 , 20:200,30:300 , 40:900}
+d2={40:400 , 5:699, 6:13 }
+
+# now i dont want to replace i need to add values of common keys
+for i in d2:
+    if i in d1.keys(): # agr common h toh values add krdo 
+     d1[i]+=d2[i]
+    else:
+       d1[i]=d2[i]  # agr common key ni h toh simply add in d1 
+print(d1)
