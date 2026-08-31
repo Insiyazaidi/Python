@@ -1,4 +1,15 @@
 
+# we can import func from diff file/module 
+
+import func
+
+
+func.check(input("enter string "))
+
+from project import main , extra  # diff folder se multiple files imp krni h toh 
+
+from project.just import handling
+
 # class Animal:
 #     @property
 #     def show(self):
@@ -72,4 +83,32 @@
 # print(s)
 
 #LAMBDA FUNC 
+
+# addition = lambda a: "even" if a%2==0 else "odd" # this is an obj
+
+# print(addition(2))
+
+#MAP 
+
+a = [1 ,2 , 3,4  , 9 , 10]
+# def double(x):
+#     return x*2
+# # result = map(lambda x : x*2 , a)  map need func and storage over which we need to perform operation
+# result = map(double , a)  # we can use it withput lambda 
+# print(list(result))  # result will be obj se we converted it into list 
+
+# FILTER 
+
+
+# def even(x):
+#     if x%2==0:
+#         return True
+#     else:
+#         return False
+
+# # result=  filter(even, a)
+
+# result=  filter(lambda x: True if x%2==0 else False,  a)
+
+# print(list(result))
 
