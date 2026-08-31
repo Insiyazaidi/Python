@@ -6,9 +6,11 @@ import func
 
 func.check(input("enter string "))
 
-from project import main , extra  # diff folder se multiple files imp krni h toh 
+from project import main  
 
-from project.just import handling
+ # diff folder se multiple files imp krni h toh  - from project import main , secondfilename  WITHOUT .PY 
+
+ # from project.Bankmanagement  import filename     --- folder ke andr ek aur folder se import krna ho toh 
 
 # class Animal:
 #     @property
