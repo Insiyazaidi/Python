@@ -40,16 +40,36 @@
 # information(name = "insiya" , age=12 , father = "arhsad")  # kwargs are used for key word arguments
 
 
-def decorate(func):  # hello func is argument for this 
-    def wrapper(*args , **kwargs):
-        print(" the addition to your numb are ")
-        func(*args , **kwargs)
-        print(" thank you ")
-    return wrapper  # this wrapper func will be return 
+# def decorate(func):  # hello func is argument for this 
+#     def wrapper(*args , **kwargs):
+#         print(" the addition to your numb are ")
+#         func(*args , **kwargs)
+#         print(" thank you ")
+#     return wrapper  # this wrapper func will be return 
 
 
 
-@decorate
-def add(a,b):
-    print(f"total is {a-b}")
-add( b =3 ,a=12 ) 
+# @decorate
+# def add(a,b):
+#     print(f"total is {a-b}")
+# add( b =3 ,a=12 ) 
+
+
+#COMPREHENSIONS 
+
+#LIST
+# l= [ i for i in range(1,21) if i%2==0]   # thing u want to add in list , loop , if else cond 
+
+# print(l)
+
+# DICTIONARY
+# d ={i : i**2 for i in range(1,10)}  # key , val , loop 
+# print(d)
+
+# SETS
+
+# s = {i*i for i in range(1,10) if i%2==0}
+# print(s)
+
+#LAMBDA FUNC 
+
