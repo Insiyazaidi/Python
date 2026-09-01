@@ -20,8 +20,16 @@ class Bank:
 
 # json.loads() JSON ko Python object mein convert karta hai, aur json.dumps() Python object ko JSON format mein convert karta hai.
 
-def createaccount(self):
-   data = {
+   @staticmethod
+   def update():  # iska sirf yhi kaaam h ki dummy data ko data.json file m daal do 
+      with open(Bank.database,'w') as fs:
+       fs.write(json.dumps(Bank.data))
+      
+
+
+
+   def createaccount(self):
+    info = {
      "name" : input("Tell your name"),
       "age" :int(input("tell your age")),
       "email" : (input("tell your email")),
@@ -29,8 +37,17 @@ def createaccount(self):
        "accountNo": 1234,
        "balance":0
 }
-   if data["age"] <18 or len(str(data["pin"]))!=4:  # pin jo int m tha ab 
+    if info["age"] <18 or len(str(info["pin"]))!=4:  # pin jo int m tha ab uski len nikalne ke liye string m conv krna padhega 
       print("sorry u cannot create account")
+        
+    else:
+       print("account has been created succ")
+
+       for i in info:
+          print(f"{i} : {info[i]}")
+          print("Please note down your acc no ")
+       Bank.data.append(info)  # info ko data m daaldo 
+       Bank.update()  # aur phir is func se data ko database file m daaldo 
 
 
 
@@ -47,5 +64,6 @@ print("press 6 for deleting your account")
 
 check = int(input("tell your response :-  "))
 
-#if  check ==1:
+if  check ==1:
+   user.createaccount()
 
