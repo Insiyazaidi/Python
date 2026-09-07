@@ -180,7 +180,7 @@ class Bank:
         if check == 'n' or check == 'N':
           print("bypassed")
         else:
-          index = Bank.data.index[userdata][0]  # 
+          index = Bank.data.index(userdata[0])  # main data m se index find kro us data ka jo userdata m padha hua h 
           Bank.data.pop(index)
           print("Account deleted successfully")
         Bank.__update()
