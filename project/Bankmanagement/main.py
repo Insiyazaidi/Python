@@ -176,8 +176,14 @@ class Bank:
       if userdata == False:
              print("No such data found")
       else:
-        check = input("press y if you want to delete the account ")
-    
+        check = input("press y if you want to delete the account or press n  ")
+        if check == 'n' or check == 'N':
+          print("bypassed")
+        else:
+          index = Bank.data.index[userdata][0]  # 
+          Bank.data.pop(index)
+          print("Account deleted successfully")
+        Bank.__update()
 user = Bank()  
 
 
