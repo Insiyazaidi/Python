@@ -95,7 +95,7 @@ class Bank:
  
 
 
-def withdrawmoney(self):
+   def withdrawmoney(self):
 
     accnumb =   input("please tell your account numb")
     pin =   int(input("please tell your pin "))
@@ -118,10 +118,50 @@ def withdrawmoney(self):
         curruser[0]['balance']-=amount  # curruser list h usmai dic hai toh curruser[0]-> first element in list which will be dic 
         Bank.__update()   # bank data m update hogya h ... ab json file m krna  h  
  
+   def showdetails(self):
+     accnumb =   input("please tell your account numb")
+     pin =   int(input("please tell your pin "))
 
+     userdata = [i for i in Bank.data if i["accountNo"] == accnumb and i["pin"] == pin]
+     print("your information are \n\n\n")
+     for i in userdata[0]: # 0 th  element mean first element 
+       print(f"{i} : {userdata[0][i]}")
+     
+   def updatedetails(self):
+      accnumb =   input("please tell your account numb")
+      pin =   int(input("please tell your pin "))
+      userdata = [i for i in Bank.data if i["accountNo"] == accnumb and i["pin"] == pin]
+      if userdata == False:
+        print("No such user found")
+      else:
+        print(" You cannot change the age , account no , balance ")
+        print( "You  have to fill the details for change or leave it empty if no change")
+        newdata = {
+          "name": input("please tell new name or press enter :"),
+          "email": input("please tell new email or press enter :"),
+           "pin": input("please tell new name or press enter :")
+        }
+        if newdata["name"] =="": # if empty ie user do not want to change it -- then fill whatever was there previously 
+          newdata["name"] = userdata[0]["name"]
+        if newdata["email"] =="":
+          newdata["email"] = userdata[0]["email"]
+        if newdata["pin"] =="":
+          newdata["pin"] = userdata[0]["pin"]
 
+        newdata["age"] = userdata[0]["age"]
+        newdata["accountNo"] = userdata[0]["accountNo"]
+        newdata["balance"] = userdata[0]["balance"]
 
+        if type(newdata["pin"]) == str:  # mean user has changed the pin 
+          newdata["pin"] = int(newdata["pin"])
 
+  # ab userdata  mai daal dena h newdata 
+      for i in newdata:
+       if newdata[i]==userdata[0][i]: # agr same h dono m toh continue 
+          continue
+      else:
+        userdata[0][i] = newdata[i]
+  
 
 user = Bank()  
 
@@ -143,4 +183,9 @@ if check==2:
   user.depositmoney()
 if check==3:
   user.withdrawmoney()
+
+if check ==4:
+  user.showdetails()
+if check ==5:
+  user.updatedetails()
 
