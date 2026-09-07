@@ -4,13 +4,23 @@ import random
 import string
 from pathlib import Path
 
+BASE_DIR = Path(__file__).resolve().parent
+
+# __file__ -> main.py ka path
+# Path(__file__) -> Path object 
+# .resolve -> hota h full path nikalne ke liye 
+# .parent ek folder peeche/upper level  , yaani ab yeh bankmanagement pr hoga 
+
+
+
 class Bank:
-   database = 'data.json'
+   database = BASE_DIR / 'data.json'   # C:\Users\LENOVO\Desktop\Python\project\Bankmanagement\data.json - proper path hi define krdia ,
+   # bankmanagemt ke aage data.json lgadia 
    data =[]
 
+   
    try:
-         print("FILE PATH:", Path(database).absolute())
-         print("FILE EXISTS:", Path(database).exists())
+     
          if Path(database).exists():  # Path Python ka object banata hai jo file/folder ke path ko represent karta hai.
           with open(database , 'r') as fs: # open() ko file ka naam ya file ka path, dono de sakte ho.
            data = json.loads(fs.read())  
@@ -54,7 +64,7 @@ class Bank:
     else:
        print("account has been created succ")
 
-       for i in info:
+       for i in info:  # info is dic and i will be key 
           print(f"{i} : {info[i]}")
        print("Please note down your acc no ")
        Bank.data.append(info)  # info ko data m daaldo 
@@ -65,9 +75,9 @@ class Bank:
     accnumb =   input("please tell your account numb")
     pin =   int(input("please tell your pin "))
     # find acc no and pin in dummydata 
-    print(Bank.data)
+    # print(Bank.data)
 
-    curruser = [ i for i in Bank.data if i['accountNo'] == accnumb and i['pin'] == pin]  # i will represent dic in each iteration 
+    curruser = [ i for i in Bank.data if i["accountNo"] == accnumb and i["pin"] == pin]  # i will represent dic in each iteration 
      # jo i match krrha h usko list m daaldo 
     # curruser will be a list having a dic 
 
@@ -80,7 +90,32 @@ class Bank:
         print("sorry u cannot deposit this amount")
       else:
         print(curruser)
-        curruser[0]['balance']+=amount
+        curruser[0]['balance']+=amount  # curruser list h usmai dic hai toh curruser[0]-> first element in list which will be dic 
+        Bank.__update()   # bank data m update hogya h ... ab json file m krna  h  
+ 
+
+
+def withdrawmoney(self):
+
+    accnumb =   input("please tell your account numb")
+    pin =   int(input("please tell your pin "))
+    # find acc no and pin in dummydata 
+    # print(Bank.data)
+
+    curruser = [ i for i in Bank.data if i["accountNo"] == accnumb and i["pin"] == pin]  # i will represent dic in each iteration 
+     # jo i match krrha h usko list m daaldo 
+    # curruser will be a list having a dic 
+
+    # curruser m jo dic h aur Bank.data m jo dic h vo same reference pr h .. yaani ab hm curruser m uupdate krege tohh vo bankdata m bhi change hoga 
+    if curruser == False:
+       print("Sorry no data found")
+    else:
+      amount = int(input("enter amount u want to withdraw"))
+      if curruser[0]["balance"]<amount:
+        print("sorry u dont have that much money  ")
+      else:
+        print(curruser)
+        curruser[0]['balance']-=amount  # curruser list h usmai dic hai toh curruser[0]-> first element in list which will be dic 
         Bank.__update()   # bank data m update hogya h ... ab json file m krna  h  
  
 
@@ -106,3 +141,6 @@ if  check==1:
 
 if check==2:
   user.depositmoney()
+if check==3:
+  user.withdrawmoney()
+
